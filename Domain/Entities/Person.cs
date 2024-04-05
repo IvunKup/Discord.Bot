@@ -6,7 +6,7 @@ namespace Domain.Entities;
 public class Person : BasePerson
 {
     /// <summary>
-    /// 
+    /// ФИО
     /// </summary>
     public FullName FullName { get; set; }
     /// <summary>
