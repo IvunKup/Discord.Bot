@@ -2,7 +2,9 @@
 using Domain.Primitieves.Enum;
 
 namespace Domain.Entities;
-
+/// <summary>
+/// Макет человека.
+/// </summary>
 public class Person : BasePerson
 {
     /// <summary>
@@ -18,7 +20,7 @@ public class Person : BasePerson
     /// <summary>
     /// Дата рождения
     /// </summary>
-    public DateTime Birthday { get; set; }
+    public DateTime BirthDay { get; set; }
     
     /// <summary>
     /// Номер телефона
