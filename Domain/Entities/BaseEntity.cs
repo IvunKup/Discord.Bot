@@ -1,8 +1,9 @@
 ﻿namespace Domain.Entities;
+
 /// <summary>
 /// Базовый класс для Person.
 /// </summary>
-public class BasePerson
+public abstract class BaseEntity
 {
     /// <summary>
     /// ID пользователя.

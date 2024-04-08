@@ -1,11 +1,12 @@
 ﻿using Domain.Entities.ValueObjects;
-using Domain.Primitieves.Enum;
+using Domain.Primitives.Enum;
 
 namespace Domain.Entities;
+
 /// <summary>
 /// Макет человека.
 /// </summary>
-public class Person : BasePerson
+public class Person : BaseEntity
 {
     /// <summary>
     /// ФИО
@@ -31,4 +32,21 @@ public class Person : BasePerson
     /// Ник Дискорда
     /// </summary>
     public string DiscordNick { get; set; }
+    
+    /// <summary>
+    /// Конструктор
+    /// </summary>
+    /// <param name="fullName">ФИО.</param>
+    /// <param name="gender">Пол.</param>
+    /// <param name="birthDay">Дата рождения.</param>
+    /// <param name="phoneNumber">Номер телефона.</param>
+    /// <param name="discordNick">Ник в Дискорде.</param>
+    public Person(FullName fullName, Gender gender, DateTime birthDay, string phoneNumber, string discordNick)
+    {
+        FullName = fullName;
+        Gender = gender;
+        BirthDay = birthDay;
+        PhoneNumber = phoneNumber;
+        DiscordNick = discordNick;
+    }
 }

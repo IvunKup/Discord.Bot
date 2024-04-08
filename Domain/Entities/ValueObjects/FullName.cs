@@ -1,5 +1,8 @@
 ﻿namespace Domain.Entities.ValueObjects;
 
+/// <summary>
+/// ФИО
+/// </summary>
 public class FullName
 {
     /// <summary>
@@ -16,4 +19,17 @@ public class FullName
     /// Отчество
     /// </summary>
     public string? FatherName { get; set;}
+    
+    /// <summary>
+    /// Конструктор.
+    /// </summary>
+    /// <param name="firstName">Имя.</param>
+    /// <param name="lastName">Фамилия.</param>
+    /// <param name="fatherName">Отчество.</param>
+    public FullName(string firstName, string lastName, string fatherName)
+    {
+        FirstName = firstName;
+        LastName = lastName;
+        FatherName = fatherName;
+    }
 }
