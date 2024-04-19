@@ -7,8 +7,8 @@ public class FullNameValidator: AbstractValidator<string>
     public FullNameValidator(string paramName)
     {
         RuleFor(n => n)
-            .NotNull()
-            .NotEmpty()
-            .Matches(RegexPatterns.NameRegex);
+            .NotNull().WithMessage(string.Format(ErrorMasages.IsNull, paramName))
+            .NotEmpty().WithMessage(string.Format(ErrorMasages.IsEmpty, paramName))
+            .Matches(RegexPatterns.NameRegex).WithMessage(ErrorMasages.NameGramer);
     }
 }

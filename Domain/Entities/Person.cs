@@ -1,5 +1,6 @@
 ﻿using Domain.Entities.ValueObjects;
 using Domain.Primitives.Enum;
+using Domain.Validations.Validators;
 
 namespace Domain.Entities;
 
@@ -46,7 +47,15 @@ public class Person : BaseEntity
         FullName = fullName;
         Gender = gender;
         BirthDay = birthDay;
-        PhoneNumber = phoneNumber;
+        PhoneNumber = PhoneValidation(phoneNumber, nameof(phoneNumber));
         DiscordNick = discordNick;
+    }
+
+    // Проверить, вернулись ли ошибки после валидации.
+    private string PhoneValidation(string phoneNumber, string paramName)
+    {
+        var phoneValidator = new PhoneValidator(paramName);
+        var phoneValidationResult = phoneValidator.Validate(phoneNumber);
+        return phoneNumber;
     }
 }
