@@ -17,10 +17,10 @@ public abstract class ErrorMasages
     /// <summary>
     /// Неверные символы в ФИО.
     /// </summary>
-    public const string NameGramer = "Вы ввели недопустимые символы в {nameof(FullName)}.";
+    public const string NameGramer = "Вы ввели недопустимые символы в {0}.";
     /// <summary>
     /// Не выбран вариант ответа.
     /// </summary>
-    public const string EnumIsNone = "Вы ввели недопустимые символы в имени.";
+    public const string EnumIsNone = "Вы не указали необходимый пункт.";
     
 }

@@ -1,23 +1,19 @@
-﻿namespace Domain.Validations.Validators;
+﻿using FluentValidation;
 
-public class EnumValidator<TEnum> where TEnum : Enum
+namespace Domain.Validations.Validators;
+
+/// <summary>
+/// Валидация перечислений
+/// </summary>
+/// <typeparam name="TEnum">Перечисление.</typeparam>
+public class EnumValidator<TEnum> : AbstractValidator<TEnum> where TEnum : Enum
 {
-    private readonly TEnum[] _defaultValues;
-
-    public EnumValidator(TEnum[] defaultValues)
+    public EnumValidator(string paramName, params TEnum[] defaultValues) 
     {
-        _defaultValues = defaultValues;
-    }
-
-    public bool Validate(TEnum value)
-    {
-        foreach (var defaultValue in _defaultValues)
+        foreach (var value in defaultValues)
         {
-            if (value.Equals(defaultValue))
-            {
-                return true;
-            }
+            RuleFor(e => e)
+                .NotEqual(value).WithMessage(string.Format(ErrorMasages.EnumIsNone, paramName));
         }
-        return false;
     }
 }
