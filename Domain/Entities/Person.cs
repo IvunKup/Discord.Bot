@@ -1,6 +1,7 @@
 ﻿using Domain.Entities.ValueObjects;
 using Domain.Primitives.Enum;
 using Domain.Validations.Validators;
+using FluentValidation.Validators;
 
 namespace Domain.Entities;
 
@@ -17,7 +18,7 @@ public class Person : BaseEntity
     /// <summary>
     /// Пол
     /// </summary>
-    public Gender Gender { get; set; }
+    public string Gender { get; set; }
     
     /// <summary>
     /// Дата рождения
@@ -44,11 +45,11 @@ public class Person : BaseEntity
     /// <param name="discordNick">Ник в Дискорде.</param>
     public Person(FullName fullName, Gender gender, DateTime birthDay, string phoneNumber, string discordNick)
     {
-        FullName = fullName;
-        Gender = gender;
-        BirthDay = birthDay;
+        FullName = FullNameValidation(fullName, nameof(fullName));
+        Gender = EnumValidation(gender, nameof(gender));
+        BirthDay = BirthDayValidation(birthDay, nameof(birthDay));
         PhoneNumber = PhoneValidation(phoneNumber, nameof(phoneNumber));
-        DiscordNick = discordNick;
+        DiscordNick = DiscordNickValidation(discordNick, nameof(discordNick));
     }
 
     //NOPE Проверить, вернулись ли ошибки после валидации.
@@ -57,5 +58,29 @@ public class Person : BaseEntity
         var phoneValidator = new PhoneValidator(paramName);
         var phoneValidationResult = phoneValidator.Validate(phoneNumber);
         return phoneNumber;
+    }
+    private string DiscordNickValidation(string discordNick, string paramName)
+    {
+        var discordValidator = new DiscordNickValidator(paramName);
+        var discordValidationResult = discordValidator.Validate(discordNick);
+        return discordNick;
+    }
+    private FullName FullNameValidation(FullName fullName, string paramName)
+    {
+        var nameValidator = new FullNameValidator(paramName);
+        var nameValidationResult = nameValidator.Validate(fullName);
+        return fullName;
+    }
+    private DateTime BirthDayValidation(DateTime birthDay, string paramName)
+    {
+        var dateTimeValidator = new DateTimeValidator(paramName);
+        var birthDayValidationResult = dateTimeValidator.Validate(birthDay);
+        return birthDay;
+    }
+    private string EnumValidation(Gender gender, string paramName)
+    {
+        var genderValidator = new EnumValidator<TEnum>(paramName);
+        var genderValidationResult = genderValidator.Validate(gender);
+        return gender;
     }
 }
