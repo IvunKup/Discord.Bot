@@ -52,7 +52,6 @@ public class Person : BaseEntity
         DiscordNick = DiscordNickValidation(discordNick, nameof(discordNick));
     }
 
-    //NOPE Проверить, вернулись ли ошибки после валидации.
     private string PhoneValidation(string phoneNumber, string paramName)
     {
         var phoneValidator = new PhoneValidator(paramName);
