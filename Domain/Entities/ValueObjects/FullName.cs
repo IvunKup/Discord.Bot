@@ -1,4 +1,6 @@
-﻿namespace Domain.Entities.ValueObjects;
+﻿using Domain.Validations.Validators;
+
+namespace Domain.Entities.ValueObjects;
 
 /// <summary>
 /// ФИО
@@ -28,8 +30,15 @@ public class FullName
     /// <param name="fatherName">Отчество.</param>
     public FullName(string firstName, string lastName, string fatherName)
     {
-        FirstName = firstName;
-        LastName = lastName;
-        FatherName = fatherName;
+        FirstName = FullNameValidation(firstName, nameof(firstName));
+        LastName = FullNameValidation(lastName, nameof(lastName));
+        FatherName = FullNameValidation(fatherName, nameof(fatherName));
+    }
+    
+    private string FullNameValidation(string value, string paramName)
+    {
+        var nameValidator = new FullNameValidator(paramName);
+        var nameValidationResult = nameValidator.Validate(value);
+        return value;
     }
 }

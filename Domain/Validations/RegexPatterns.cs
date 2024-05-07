@@ -10,10 +10,12 @@ public static class RegexPatterns
     /// Телефон
     /// </summary>
     public static readonly Regex PhoneRegex = new Regex(@"^\+373[0-9]{8}$");
+    
     /// <summary>
     /// Псевданим
     /// </summary>
     public static readonly Regex NickRegex = new Regex(@"^[a-zA-Z0-9]{2,20}$");
+    
     /// <summary>
     /// ФИО
     /// </summary>
