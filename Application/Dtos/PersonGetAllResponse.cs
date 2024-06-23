@@ -1,6 +1,12 @@
 ﻿namespace Application.Dtos;
 
-public class PersonGetAllResponse : BaseDto
+/// <summary>
+/// Получение Person
+/// </summary>
+public class PersonGetAllResponse : BasePersonDto
 {
+    /// <summary>
+    /// Идентификатор Person
+    /// </summary>
     public Guid Id { get; init; }
 }

@@ -1,6 +1,8 @@
 ﻿namespace Application.Dtos;
 
-public class CreatePersonRequest : BaseDto
+/// <summary>
+/// Дто для создания Person
+/// </summary>
+public class CreatePersonRequest : BasePersonDto
 {
-    
 }

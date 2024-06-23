@@ -1,9 +1,9 @@
 ﻿namespace Application.Dtos;
 
 /// <summary>
-/// Ответ создания Person
+/// Ответ обновления Person
 /// </summary>
-public class CreatePersonResponse : BasePersonDto
+public class PersonUpdateResponse : BasePersonDto
 {
     /// <summary>
     /// Идентификатор Person
