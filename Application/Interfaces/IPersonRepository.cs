@@ -5,42 +5,40 @@ namespace Application.Interfaces;
 public interface IPersonRepository
 {
     /// <summary>
-    /// Создание
+    /// Создание персон.
     /// </summary>
-    /// <param name="entity"></param>
+    /// <param name="entity">Сущность.</param>
     /// <returns>Новая сущность</returns>
     public Person Create(Person entity);
 
     /// <summary>
-    /// Прочтение
+    /// Получение персоны по ID.
     /// </summary>
-    /// <param name="id"></param>
+    /// <param name="id">Идентификатор.</param>
     /// <returns>Сущность</returns>
     public Person GetById(Guid id);
     
     /// <summary>
-    /// Обновление
+    /// Обновление персоны.
     /// </summary>
-    /// <param name="entity"></param>
-    /// <returns>Обновленную сущность</returns>
+    /// <param name="entity">Сущность.</param>
+    /// <returns>Обновленная сущность</returns>
     public Person Update(Person entity);
     
     /// <summary>
-    /// Удаление
+    /// Удаление персоны.
     /// </summary>
-    /// <param name="id"></param>
-    /// <returns>bool результат</returns>
-    public void DeleteById(Guid id);
+    /// <param name="id">Идентификатор.</param>
+    public void Delete(Guid id);
     
     /// <summary>
-    /// Получтение всего 
+    /// Получтение всех персон.
     /// </summary>
     /// <returns>List содержащий все сущности</returns>
-    public List<Person> GetAllList();
+    public List<Person> GetAll();
 
     /// <summary>
-    /// Сохранение 
+    /// Сохранение изменений.
     /// </summary>
-    /// <returns>List содержащий все сущности</returns>
     public Task SaveChanges();
 }
