@@ -7,8 +7,8 @@ public class DiscordNickValidator: AbstractValidator<string>
     public DiscordNickValidator(string paramName)
     {
         RuleFor(d => d)
-            .NotNull().WithMessage(string.Format(ErrorMasages.IsNull, paramName))
-            .NotEmpty().WithMessage(string.Format(ErrorMasages.IsEmpty, paramName))
+            .NotNull().WithMessage(string.Format(ErrorMessages.IsNull, paramName))
+            .NotEmpty().WithMessage(string.Format(ErrorMessages.IsEmpty, paramName))
             .Matches(RegexPatterns.NickRegex);
     }
 }

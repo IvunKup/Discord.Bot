@@ -8,33 +8,33 @@ public interface IPersonRepository
     /// Создание персон.
     /// </summary>
     /// <param name="entity">Сущность.</param>
-    /// <returns>Новая сущность</returns>
+    /// <returns>Новая сущность.</returns>
     public Person Create(Person entity);
 
     /// <summary>
     /// Получение персоны по ID.
     /// </summary>
     /// <param name="id">Идентификатор.</param>
-    /// <returns>Сущность</returns>
+    /// <returns>Сущность.</returns>
     public Person GetById(Guid id);
     
     /// <summary>
     /// Обновление персоны.
     /// </summary>
     /// <param name="entity">Сущность.</param>
-    /// <returns>Обновленная сущность</returns>
+    /// <returns>Обновленная сущность.</returns>
     public Person Update(Person entity);
     
     /// <summary>
     /// Удаление персоны.
     /// </summary>
     /// <param name="id">Идентификатор.</param>
-    public void Delete(Guid id);
+    public void Delete(Person entity);
     
     /// <summary>
     /// Получтение всех персон.
     /// </summary>
-    /// <returns>List содержащий все сущности</returns>
+    /// <returns>List содержащий все сущности.</returns>
     public List<Person> GetAll();
 
     /// <summary>

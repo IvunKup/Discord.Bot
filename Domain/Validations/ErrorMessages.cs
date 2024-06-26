@@ -1,6 +1,6 @@
 ﻿namespace Domain.Validations;
 
-public abstract class ErrorMasages
+public abstract class ErrorMessages
 {
     /// <summary>
     /// Сообщение для неверного номера телефона.
